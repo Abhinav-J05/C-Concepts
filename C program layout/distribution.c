@@ -40,7 +40,7 @@ int main(){
     // the string literal will be stored in .rodata segment, but the array is stored in stack.
     // the literal will be copied to array as .. 'w' 'h' .. .. '?' '\0'
 
-    char *msg = "This is not modifiable !";
+    char *msgs = "This is not modifiable !";
     // as literal is stored in .rodata, and msg is a pointer stored in stack.
     // It is pointing to Read only memory, therefore not modifiable.
 
