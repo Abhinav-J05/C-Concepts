@@ -1,0 +1,6 @@
+# Ignore all .obj files
+*.obj
+
+# Ignore VSCode specific configuration files
+.vscode/tasks.json
+.vscode/launch.json
