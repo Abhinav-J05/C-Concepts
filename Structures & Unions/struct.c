@@ -46,8 +46,11 @@ second_struct set_two = {5, 10};
 * 1. When a larger data type (like int or double) follows smaller data type (like uint8_t).
 * 2. At the end of the struct (to make the struct size a multiple of the largest alignment requirement).
 *
-* Padding avoided -> Padding won't be added when the data types are naturally aligned
-*                    and fit perfectly without violating alignment constraints.
+* Padding avoided when -> 
+* 1. Padding won't be added when the data types are naturally aligned
+*    and fit perfectly without violating alignment constraints.
+* 2. All fields are of the same size or the same type.
+* 3. There are no misalignments between fields.
 */
 
 
