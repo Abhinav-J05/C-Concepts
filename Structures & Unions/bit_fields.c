@@ -11,7 +11,11 @@ typedef struct
 
 } Register;
 
-
+/*
+* Note - 
+* Use of uint type is better than defining bit fields as, 
+* behaviour differs and it is therefore not portable.
+*/
 
 int main () {
 
