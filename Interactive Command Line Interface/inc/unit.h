@@ -34,7 +34,8 @@ struct unit
 
     struct unit* parent;                    // Current's parent
     struct unit* child;                     // Current's child 
-    struct unit* next_silbling;             // Current's next sibling
+    struct unit* prev_sibling;              // Current's prev sibling
+    struct unit* next_sibling;             // Current's next sibling
 
     unsigned int ID;                        // Unique ID
 
@@ -42,7 +43,7 @@ struct unit
 
 typedef struct {
 
-    unit_t* path[MAX_PATH_LEN];               // Stack of directories from root to current
+    unit_t* path[MAX_PATH_LEN];             // Stack of directories from root to current
     int depth;                              // Depth in the file tree
 
 } session_state_t;

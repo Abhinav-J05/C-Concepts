@@ -4,6 +4,7 @@
 
 
 #include "unit.h"
+#include "parser.h"
 #include "cli_util.h"
 
 
@@ -42,26 +43,15 @@ int session_open()
 
         if (strcmp(user_input, "exit") == 0)
         {
-            char confirm;
-            printf("\033[1;33mAre you sure you want to exit? [Y/N]: \033[0m");
-            confirm = getchar();
-            getchar(); // consume the leftover newline character from input buffer
-
-            if (confirm == 'Y' || confirm == 'y')
-            {
-                printf("\033[1;33mExiting session...\033[0m\n");
-                break;
-            }
-            else
-            {
-                printf("\033[1;34mExit canceled.\033[0m\n");
+            if (!exit_confirmation())
                 continue;
-            }
+            break;
+
         }
 
         if(strcmp(user_input, "clear") == 0)
         {
-            // clear_screen();
+            clear_screen();
             continue;
         }
 
@@ -102,6 +92,7 @@ int session_open()
     printf("\033[1;34m╭──────────────────────────────────────╮\n"         );
     printf(          "│            SESSION CLOSED            │\n"         );
     printf(          "╰──────────────────────────────────────╯\033[0m\n\n");
+    // Session ends here.
 }
 
 
