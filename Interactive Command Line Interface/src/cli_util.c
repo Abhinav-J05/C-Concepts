@@ -13,18 +13,6 @@ void clear_screen()
     fflush(stdout);
 }
 
-
-void reset_session_state()
-{
-
-}
-
-void switch_session_state(session_state_t* state, char* dest_add)
-{
-
-
-}
-
 void inform_success(const char *message)
 {
     if (message)
@@ -40,6 +28,35 @@ void show_error(const char *message)
         printf("\033[1;31m[ERROR] %s\033[0m\n", message);
     }
 }
+
+bool exit_confirmation()
+{
+    char confirm;
+    printf("\033[1;33mAre you sure you want to exit? [Y/N]: \033[0m");
+
+    confirm = getchar();
+    getchar(); // consume the newline
+
+    if (confirm == 'Y' || confirm == 'y') {
+        printf("\033[1;33mExiting session...\033[0m\n");
+        return true;
+    } else {
+        printf("\033[1;34mExit canceled.\033[0m\n");
+        return false;
+    }
+}
+
+void reset_session_state()
+{
+
+}
+
+void switch_session_state(session_state_t* state, char* dest_add)
+{
+
+
+}
+
 
 void generate_prompt(const session_state_t *state, char *prompt_out, size_t maxlen)
 {
