@@ -85,7 +85,7 @@ int session_open()
         }
 
 
-        int ret = process_input(user_input, &state);
+        int ret = process_input(user_input, state);
 
     }
     

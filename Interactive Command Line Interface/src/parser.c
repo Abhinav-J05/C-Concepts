@@ -15,22 +15,23 @@ int process_input(const char* input, session_state_t state)
         // create a file
         if(strncmp(input, "touch ", 6) == 0)
         {   
-            char *args = input + 6;
+            // TODO : decouple traverse logic to target path & file creation logic from here.
+            // char *args = input + 6;
 
-            // Split into filename and content
-            char *filename = strtok(args, " ");
-            char *file_content = strtok(NULL, "");
+            // // Split into filename and content
+            // char *filename = strtok(args, " ");
+            // char *file_content = strtok(NULL, "");
 
-            if (filename == NULL)
-            {
-                show_error("Filename missing for touch command.");
-                continue;
-            }
+            // if (filename == NULL)
+            // {
+            //     show_error("Filename missing for touch command.");
+            //     continue;
+            // }
 
-            if (file_content == NULL)
-                file_content = ""; 
-                
-            create_file(state, false, false, filename, file_content);
+            // if (file_content == NULL)
+            //     file_content = ""; 
+
+            create_file(target_dir, false, false, filename, file_content);
             continue;
         }
 
