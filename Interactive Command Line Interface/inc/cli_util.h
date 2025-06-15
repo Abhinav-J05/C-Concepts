@@ -25,6 +25,13 @@
 #include "cli_util.h"
 #include "unit.h"
 
+
+/**
+ * @brief Clears the terminal screen using ANSI escape codes.
+ * 
+ */
+void clear_screen();
+
 // Reset session state
 void reset_session_state();
 

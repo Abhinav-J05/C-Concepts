@@ -7,6 +7,13 @@
 #include "cli_util.h"
 
 
+void clear_screen()
+{
+    printf("\033[2J\033[H");
+    fflush(stdout);
+}
+
+
 void reset_session_state()
 {
 
