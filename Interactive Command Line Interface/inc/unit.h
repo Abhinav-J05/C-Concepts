@@ -9,17 +9,10 @@
 #define MAX_PATH_LEN 256
 
 
-typedef struct {
-
-    char* path[MAX_PATH_LEN];               // Stack of directories from root to current
-    int depth;                              // Depth in the file tree
-
-} session_state_t;
-
 typedef enum
 {
-    FILE,
-    DIRECTORY,
+    IS_FILE,
+    IS_DIRECTORY,
 } unit_type_t;
 
 
@@ -47,8 +40,12 @@ struct unit
 
 };
 
+typedef struct {
 
+    unit_t* path[MAX_PATH_LEN];               // Stack of directories from root to current
+    int depth;                              // Depth in the file tree
 
+} session_state_t;
 
 
 #endif
