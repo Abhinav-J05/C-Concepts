@@ -6,21 +6,29 @@
 
 
 #define MAX_NAME_LEN 256
+#define MAX_PATH_LEN 256
 
+
+typedef struct {
+
+    char* path[MAX_PATH_LEN];               // Stack of directories from root to current
+    int depth;                              // Depth in the file tree
+
+} session_state_t;
 
 typedef enum
 {
     FILE,
     DIRECTORY,
-} unit_type;
+} unit_type_t;
 
 
-typedef struct unit_t unit;
+typedef struct unit unit_t;
 // Each unit structure
-struct unit_t
+struct unit
 {
     char name[MAX_NAME_LEN];                // Name of file or directory
-    unit_type type;                         // Whether file or directory
+    unit_type_t type;                       // Whether file or directory
 
     time_t creation_time;                   // Time of creation
     time_t modification_time;               // Last modified
@@ -31,9 +39,9 @@ struct unit_t
     bool is_hidden;                         // Hidden file flag
     bool is_readonly;                       // Read only file
 
-    struct unit_t* parent;                  // Current's parent
-    struct unit_t* child;                   // Current's child 
-    struct unit_t* next_silbling;           // Current's next sibling
+    struct unit* parent;                    // Current's parent
+    struct unit* child;                     // Current's child 
+    struct unit* next_silbling;             // Current's next sibling
 
     unsigned int ID;                        // Unique ID
 
