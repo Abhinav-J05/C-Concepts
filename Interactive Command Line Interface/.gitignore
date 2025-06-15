@@ -1,0 +1,18 @@
+# === Build Artifacts ===
+/build/
+/bin/
+*.o
+*.obj
+*.exe
+*.out
+*.so
+*.dll
+
+# === Logs & Dumps ===
+*.log
+*.tmp
+
+# === Scripts Output ===
+/scripts/*.pyc
+/scripts/__pycache__/
+
