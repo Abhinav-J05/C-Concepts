@@ -1,0 +1,27 @@
+/*
+* Interpolation Search technique
+* ------------------------------
+*
+* This approach is based on binary search and is modified version of the same.
+* The essence of interpolation search is, instead of searching for middle element,
+* try to make a guess of where the target can be using linear interpolation.
+*
+* Conditions for this approach :
+* 1. Array must be sorted
+* 2. Uniformly distributed
+*
+* Step 1 :
+* Find out how far the target is from home ( start index ).
+* 
+* Step 2 :
+* Divide by total range.
+*
+* Step 3 :
+* Get the index as,
+* 
+*                (x - arr[low])
+* =>   low +  ------------------------ . (high - low)
+*           (arr[high] - low[start])
+*
+*
+*/
